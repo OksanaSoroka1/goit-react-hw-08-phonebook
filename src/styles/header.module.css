@@ -1,0 +1,31 @@
+.header {
+  min-width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.header-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-list-item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(92, 171, 218);
+  font-size: 20px;
+}
+.link--active {
+  text-decoration: underline;
+  color: rgb(32, 76, 102);
+  font-size: 20px;
+}
+.button {
+  width: 100px;
+}
