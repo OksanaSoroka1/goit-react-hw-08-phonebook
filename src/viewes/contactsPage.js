@@ -34,4 +34,4 @@ const ContactsPage = () => {
   );
 };
 
-export { ContactsPage };
+export default ContactsPage;

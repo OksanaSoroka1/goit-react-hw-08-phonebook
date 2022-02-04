@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+/* import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import css from '../../styles/modal.module.css';
 import { Routes, Route } from 'react-router-dom';
@@ -42,3 +42,4 @@ const Modal = ({ onClose }) => {
 };
 
 export { Modal };
+ */

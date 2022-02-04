@@ -16,11 +16,9 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(operations.register.fulfilled, (state, action) => {
-      if (action.payload.user) {
-        state.userData = action.payload.user;
-        state.isLogin = true;
-        state.token = action.payload.token;
-      }
+      state.userData = action.payload.user;
+      state.isLogin = true;
+      state.token = action.payload.token;
     });
     builder.addCase(operations.login.fulfilled, (state, action) => {
       state.userData = action.payload.user;

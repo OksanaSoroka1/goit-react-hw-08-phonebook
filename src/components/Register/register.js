@@ -77,4 +77,4 @@ const Register = () => {
     </section>
   );
 };
-export { Register };
+export default Register;
