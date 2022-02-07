@@ -3,32 +3,29 @@ import Filter from '../components/Filter';
 import ContactsList from '../components/ContactsList';
 import '../App.css';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const ContactsPage = () => {
+  const navigate = useNavigate();
   const isLoggedIn = useSelector(state => state.user.isLogin);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, []);
+
   return (
     <section>
       <h1 className="main-title">Phonebook</h1>
-      {isLoggedIn ? (
+      {isLoggedIn && (
         <>
           <Form />
           <h2 className="title">Contacts</h2>
           <Filter />
           <ContactsList />
         </>
-      ) : (
-        <p className={['auth-text']}>
-          To be able to work with contacts, please{' '}
-          <Link className={['nav-link']} to="/login">
-            login
-          </Link>{' '}
-          or{' '}
-          <Link className={['nav-link']} to="/register">
-            register
-          </Link>
-          .
-        </p>
       )}
     </section>
   );

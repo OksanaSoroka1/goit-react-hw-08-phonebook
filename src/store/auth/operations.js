@@ -37,3 +37,23 @@ export const logout = createAsyncThunk(
     }
   },
 );
+
+export const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.user.token;
+    console.log(persistedToken);
+    if (persistedToken === null) {
+      console.log('Токена нет, уходим из fetchCurrentUser');
+      return thunkAPI.rejectWithValue();
+    }
+    try {
+      const responce = await api.fetchCurrentUser(persistedToken);
+      return responce;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

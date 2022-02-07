@@ -63,6 +63,18 @@ const errorSlice = createSlice({
     builder.addCase(authOperations.login.pending, state => (state = null));
     builder.addCase(authOperations.register.pending, state => (state = null));
     builder.addCase(authOperations.logout.pending, state => (state = null));
+    builder.addCase(
+      authOperations.fetchCurrentUser.rejected,
+      (state, action) => {
+        state = action.payload;
+      },
+    );
+    builder.addCase(authOperations.fetchCurrentUser.fulfilled, state => {
+      state = null;
+    });
+    builder.addCase(authOperations.fetchCurrentUser.pending, state => {
+      state = null;
+    });
   },
 });
 

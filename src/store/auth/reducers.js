@@ -30,6 +30,10 @@ const userSlice = createSlice({
       state.isLogin = false;
       state.token = null;
     });
+    builder.addCase(operations.fetchCurrentUser.fulfilled, (state, action) => {
+      state.userData = action.payload;
+      state.isLogin = true;
+    });
   },
 });
 
