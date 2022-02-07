@@ -17,7 +17,7 @@ const ContactsPage = () => {
   }, []);
 
   return (
-    <section>
+    <section className="contacts-page">
       <h1 className="main-title">Phonebook</h1>
       {isLoggedIn && (
         <>
